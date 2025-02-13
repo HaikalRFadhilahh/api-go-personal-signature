@@ -15,5 +15,5 @@ func UserRouter(r *mux.Router, di di.DI) {
 	r.HandleFunc("/users", handler.ConvertToStandartHandlerFunc(UserHandler.GetUsers)).Methods("GET")
 	r.HandleFunc("/users", handler.ConvertToStandartHandlerFunc(UserHandler.CreateUsers)).Methods("POST")
 	r.HandleFunc("/users/{id}", handler.ConvertToStandartHandlerFunc(UserHandler.DeleteUsers)).Methods("DELETE")
-
+	r.HandleFunc("/users/{id}", handler.ConvertToStandartHandlerFunc(UserHandler.UpdateUsers)).Methods("PATCH")
 }
