@@ -49,6 +49,14 @@ func (s *apiServer) Run() {
 	r.Use(middleware.LoggingMiddleware)
 	r.Use(middleware.PanicHandler)
 
+	// Root Path Handler
+	r.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+		w.Header().Del("Content-Type")
+		w.Header().Add("Content-Type", "text/html; charset=utf-8")
+		w.WriteHeader(http.StatusOK)
+		w.Write([]byte("Aplication Programming Interface Personal Signature App, Check This <a href='https://haik.my.id'>My Portofolio</a>"))
+	})
+
 	// Routes Handler
 	router.UserRouter(r, dependencyInjection)
 
