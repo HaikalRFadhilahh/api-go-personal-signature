@@ -59,6 +59,7 @@ func (s *apiServer) Run() {
 
 	// Routes Handler
 	router.UserRouter(r, dependencyInjection)
+	router.SignatureRouter(r, dependencyInjection)
 
 	// Not Found Handler
 	r.NotFoundHandler = router.NotFoundRoute()
