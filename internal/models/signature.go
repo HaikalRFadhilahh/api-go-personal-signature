@@ -7,8 +7,8 @@ type SignatureModel struct {
 	UserID     int64      `json:"userId"`
 	Token      string     `json:"token"`
 	Purpose    string     `json:"purpose"`
-	ValidUntil time.Time  `json:"validUntil"`
+	ValidUntil string     `json:"validUntil"`
 	User       UsersModel `json:"users"`
-	CreatedAt  *time.Time `json:"createAt,omitempty"`
-	UpdatedAt  *time.Time `json:"updatedAt,omitempty"`
+	CreatedAt  *time.Time `json:"createAt"`
+	UpdatedAt  *time.Time `json:"updatedAt"`
 }

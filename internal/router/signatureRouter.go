@@ -14,6 +14,8 @@ func SignatureRouter(r *mux.Router, di di.DI) {
 	}
 
 	// Signature Route Handler
-	// r.HandleFunc("/signature").Methods("GET")
+	r.HandleFunc("/signature", handler.ConvertToStandartHandlerFunc(signatureHandler.GetAllData)).Methods("GET")
 	r.HandleFunc("/signature", handler.ConvertToStandartHandlerFunc(signatureHandler.CreateSignature)).Methods("POST")
+	r.HandleFunc("/signature/{id}", handler.ConvertToStandartHandlerFunc(signatureHandler.UpdateSignature)).Methods("PATCH")
+	r.HandleFunc("/signature/{id}", handler.ConvertToStandartHandlerFunc(signatureHandler.DeleteSignature)).Methods("DELETE")
 }

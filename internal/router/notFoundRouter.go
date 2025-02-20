@@ -9,6 +9,7 @@ import (
 
 func NotFoundRoute() http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		w.Header().Add("Content-Type", "application/json")
 		w.WriteHeader(apierror.NotFoundError.StatusCode)
 		json.NewEncoder(w).Encode(apierror.NotFoundError)
 	})

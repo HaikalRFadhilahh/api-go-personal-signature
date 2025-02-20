@@ -26,6 +26,7 @@ func ReturnErrorResponse(w http.ResponseWriter, r *http.Request, a any) {
 	if !ok {
 		w.WriteHeader(InternalServerError.StatusCode)
 		json.NewEncoder(w).Encode(InternalServerError)
+		return
 	}
 	w.WriteHeader(ta.StatusCode)
 	json.NewEncoder(w).Encode(ta)
